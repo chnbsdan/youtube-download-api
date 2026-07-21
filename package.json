@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
-    "play-dl": "^1.9.0",
     "cors": "^2.8.5"
   }
 }
