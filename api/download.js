@@ -6,8 +6,10 @@ const corsHandler = cors({
   allowedHeaders: ['Content-Type']
 });
 
+// 改成可用的下载站
+const YT_DOWNLOAD_URL = 'https://www.y2mate.is/youtube';
+
 export default async function handler(req, res) {
-  // CORS
   await new Promise((resolve, reject) => {
     corsHandler(req, res, (err) => {
       if (err) reject(err);
@@ -28,7 +30,6 @@ export default async function handler(req, res) {
     });
   }
 
-  // 提取视频 ID
   let videoId = '';
   let match = videoUrl.match(/[?&]v=([^&]+)/);
   if (match) { videoId = match[1]; }
@@ -42,11 +43,10 @@ export default async function handler(req, res) {
     });
   }
 
-  // 直接返回 y2mate 下载页面
   res.json({
     success: true,
     title: 'YouTube 视频',
-    downloadUrl: `https://www.y2mate.com/youtube/${videoId}`,
+    downloadUrl: `${YT_DOWNLOAD_URL}/${videoId}`,
     quality: '点击链接后选择画质下载',
     isExternal: true
   });
