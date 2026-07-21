@@ -2,11 +2,8 @@
   "name": "youtube-download-api",
   "version": "1.0.0",
   "type": "module",
-  "scripts": {
-    "start": "node api/download.js"
-  },
   "dependencies": {
-    "ytdl-core": "^4.11.0",
+    "play-dl": "^1.9.0",
     "cors": "^2.8.5"
   }
 }
